@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body{
+            background-color: black;
+            margin:0rem;
+            padding: 0rem;
+        }
+        .contact-body{
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-body>p{
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 1rem;
+        }
+        .contact-body>h3{
+           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: white;
+            font-size: 3rem;
+        }
+        .contact-body>a{
+            color: rgb(213, 211, 207);
+        }
+        .contact-body>a:hover{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+   <div class="contact-body">
+        <h3>Thanks {{name}} for contacting me.</h3>
+        <p>I will revert back to you as soon as possible on mail provided</p>
+        <a href="/">Back</a>
+   </div>
+</body>
+</html>

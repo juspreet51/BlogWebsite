@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/29ea8845ba.js" crossorigin="anonymous"></script>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="main-body">
+        {% include 'navbar.html' %}
+        {% block content %}
+        {% endblock %}
+        <div class='search'>
+            {% comment %} <form>
+                <input id="query" placeholder="NLP,ML,Data"></input>
+                <div id='search-btn'>{% if type == "all" %}<i  class="fa-solid search-btn fa-magnifying-glass"></i>
+                {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div>
+            </form> {% endcomment %}
+        </div>
+        <div class="content-body-blog">
+
+            {% for blog in blogs %}
+            <div class="card-blog">
+                <h1>{{blog.title}}</h1>
+                <div class="card-div-blog">
+                <img src="/media/{{blog.image}}" />
+                <h3 id="content-blog">{{blog.content}}</h3>
+                </div>
+                <h5>Last edited on : {{blog.date}}</h5>
+                <div class="card-btn-blog">
+                {% comment %} <button id="show">Show More</button> {% endcomment %}
+                <button onclick="handleTags({{blog.id}})" id="tags-{{blog.id}}"><i class="fa-solid fa-tags"></i></button>
+                </div>
+            </div>
+            <div id="show-tags-{{blog.id}}">
+                {% for tag in blog.cat.all%}
+                <h3>{{tag}}</h3>
+                {% endfor %} 
+            </div>
+            {% endfor %}
+        </div>
+        {% include 'footer.html' %}
+        {% block footer %}
+        {% endblock %}
+    </div>
+    <script defer>
+        function handleTags(id){
+            document.getElementById(`show-tags-${id}`).style.display=
+            (document.getElementById(`show-tags-${id}`).style.display=="flex")?"none":"flex";
+            
+        }
+    </script>
+</body>
+</html>
