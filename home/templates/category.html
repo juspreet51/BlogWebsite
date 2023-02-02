@@ -1,4 +1,4 @@
-{% comment %} 
+{% comment %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +23,8 @@
         <div class='search'>
             <form>
                 <input type='text' id="query" placeholder="NLP,ML,Data"></input>
-                <div id='search-btn'>{% if type == "all" %}<i  class="fa-solid fa-magnifying-glass"></i>
-                {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div>
+                <div id='search-btn'>{% if type == "all" %}<i class="fa-solid fa-magnifying-glass"></i>
+                    {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div>
             </form>
         </div>
         <div class="content-body">
@@ -45,97 +45,99 @@
     <script>
         document.getElementById("search-btn").addEventListener("click", function (event) {
             event.preventDefault()
-            const tag="{{type|escapejs}}"
+            const tag = "{{type|escapejs}}"
             console.log(tag)
-            if(tag==="all"){ 
-                let query=document.getElementById("query").value.toString();
-                window.location.href=`${query}/`;   
-            }else{
-                window.location.href=`/`;   
+            if (tag === "all") {
+                let query = document.getElementById("query").value.toString();
+                window.location.href = `${query}/`;
+            } else {
+                window.location.href = `/`;
             }
         });
-        const showBlog=(tag)=>{
+        const showBlog = (tag) => {
             console.log(tag)
-            window.location.href=`blog/blogs/${tag}`;   
+            window.location.href = `blog/blogs/${tag}`;
         }
     </script>
 </body>
-</html> 
- {% endcomment %}
+
+</html>
+{% endcomment %}
 
 
- {% load static %}
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>{{category.heading}}</title>
-     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-     
- </head>
-  <body class="tag-body">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{category.heading}}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="tag-body">
     <div class="main-tag">
-    <div class="category-description">
-            
+        <div class="category-description">
             <div class="main-title">
-                <h2><span>{{category.heading}}</span><span class="bg-text">{{category.heading}}</span></h2>
+                <h2><span>{{category.heading}}</span></h2>
             </div>
             <span>Last edited : {{category.date}}</span>
             <div class="category">
                 <img src="/media/{{category.image}}" alt={{bg.title}}>
                 <p>{{category.desc}}</p>
-
-            </div>  
-    <div class="slider owl-carousel">
-        {% for bg in blog %}
-        <div class="card">
-           <div class="img">
-              <img src="/media/{{bg.image}}" alt="{{bg.title}}">
-           </div>
-           <div class="content">
-              <div class="title">
-                 {{bg.title}}
-              </div>
-              <div class="sub-title">
-                 {{bg.date}}
-              </div>
-              <p>
-                 {{bg.content}}
-              </p>
-              <div class="btn">
-                 <button onclick=handleBlogs({{bg.id}})>Read more</button>
-              </div>
-           </div>
+            </div>
+            <div class="slider owl-carousel">
+                {% for bg in blog %}
+                <div class="card">
+                    <div class="img">
+                        <img src="/media/{{bg.image}}" alt="{{bg.title}}">
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            {{bg.title}}
+                        </div>
+                        <div class="sub-title">
+                            {{bg.date}}
+                        </div>
+                        <p>
+                            {{bg.content}}
+                        </p>
+                        <div class="btn">
+                            <button onclick=handleBlogs({{bg.id}})>Read more</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-     </div>
-    </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>         
-            <script src="{% static 'js/app.js'%}"></script>
-    <script>
-        $(".slider").owlCarousel({
-            items:2,
-            loop: true,
-            autoplay: true,
-            autoplayTimeout: 2000, //2000ms = 2s;
-            autoplayHoverPause: true,
-          });
-          const handleBlogs=(id)=>{
-            window.location.href=`/blog/${id}`
-          }
-    </script>
- </body> 
- </html>
- 
+        <div class="theme-btn">
+            <i class="fas fa-adjust"></i>
+        </div>
+        <script src="{% static 'js/app.js'%}"></script>
+        <script>
+            $(".slider").owlCarousel({
+                items: 2,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+            });
+            const handleBlogs = (id) => {
+                window.location.href = `/blog/${id}`
+            }
+        </script>
+</body>
+
+</html>

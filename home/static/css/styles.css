@@ -856,10 +856,13 @@ section {
 .category-description {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  flex: 3;
   align-items: center;
   gap: 1rem;
   margin: 1rem;
 }
+
 
 .category {
   display: flex;
@@ -893,7 +896,187 @@ section {
 
 
 
+
+/*# sourceMappingURL=styles.css.map */
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.main-tag{
+  display: flex;
+  flex-direction: row;
+}
+.profile-image{
+  align-self: center;
+  margin-top: 2rem;
+}
+.profile-image>img{
+  width: 11rem;
+  height: 11rem;
+  margin: 2rem;
+  border-radius: 11rem;
+  border: 0.2rem solid var(--color-primary); 
+}
+.profile-image>img:hover{
+  box-shadow: 0.1rem 0.1rem 1rem black;
+  filter: grayscale(180%);
+}
+.connect-button{
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+.personal-desc{
+  margin: 1rem;
+}
+.personal-desc>p{
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 3rem;
+}
+.connect-button>a{
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-grey-5);
+  cursor: pointer;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 0.4rem;
+  transition: all 0.4s ease-in-out;
+}
+.side-tags{
+  display: flex;
+  flex-direction: row;
+  gap: 0.4rem;
+  padding: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.connect-text{
+  align-self: center;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+.connect-text-tag{
+  margin-top: 2rem;
+  align-self: center;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+.sidebar{
+  flex: 1;
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  background-color: var(--color-secondary);
+}
+.main-title-blog {
+  text-align: center;
+}
+
+.main-title-blog h2 {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 2rem;
+  /* font-weight: 12rem; */
+}
+
+.main-title-blog h2 span {
+  color: var(--color-secondary);
+}
+.slider{
+  max-width: 1100px;
+  display: flex;
+  align-self: center;
+  margin: 2rem;
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: var(--color-primary);
+}
+.slider .card .img{
+  height: 200px;
+  width: 100%;
+}
+.slider .card .img img:hover{
+    filter: grayscale(100%);
+}
+.slider .card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider .card .content{
+  padding: 10px 20px;
+}
+.card .content .title{
+  font-size: 25px;
+  font-weight: 600;
+}
+.card .content .sub-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  line-height: 20px;
+}
+.card .content p{
+  text-align: justify;
+  margin: 10px 0;
+}
+.card .content .btn{
+  display: block;
+  text-align: left;
+  margin: 10px 0;
+}
+.card .content .btn button{
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .content .btn button:hover{
+  transform: scale(0.9);
+}
+.personal-desc{
+  text-align: center;
+  align-self: center;
+  padding: 0.1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+#disqus_thread{
+  display: flex;
+  background-color:white;
+  color: black;
+}
+.main-content{
+  display: flex;
+  flex-direction: column;
+  
+}
+.disqus_section{
+  width: 100%;
+  background-color: red;
+}
+
+
+
+
 @media screen and (max-width: 600px) {
+
   header {
     padding: 0 !important;
   }
@@ -1042,6 +1225,7 @@ section {
 }
 
 @media screen and (max-width: 1432px) {
+  
   .container {
     padding: 7rem 11rem;
   }
@@ -1074,6 +1258,7 @@ section {
 }
 
 @media screen and (max-width: 1250px) {
+  
   .blogs {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 6rem;
@@ -1089,6 +1274,7 @@ section {
 }
 
 @media screen and (max-width: 660px) {
+ 
   .blogs {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -1100,6 +1286,7 @@ section {
 }
 
 @media screen and (max-width: 1070px) {
+
   .about-container {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -1122,6 +1309,25 @@ section {
 }
 
 @media screen and (max-width: 970px) {
+  .connect-text{
+    align-self: center;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+  .connect-text-tag{
+    align-self: center;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+  .main-tag{
+    display: flex;
+    flex-direction: column;
+  }
+  .connect-text-tag,.connect-text{
+    color: var(--color-primary);
+  }
+  
+  
   .container {
     padding: 7rem 6rem;
   }
@@ -1159,6 +1365,7 @@ section {
 }
 
 @media screen and (max-width: 700px) {
+ 
   .container {
     padding: 7rem 3rem;
   }
@@ -1174,7 +1381,7 @@ section {
   .timeline {
     grid-template-columns: repeat(1, 1fr);
   }
-
+  
   .main-title h2 {
     margin-top: 2rem;
     font-size: 3rem;
@@ -1187,77 +1394,4 @@ section {
   .main-title h2 .bg-text {
     font-size: 4rem;
   }
-}
-
-
-
-
-/*# sourceMappingURL=styles.css.map */
-
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-.main-tag{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.slider{
-  max-width: 1100px;
-  display: flex;
-}
-.slider .card{
-  flex: 1;
-  margin: 0 10px;
-  background: var(--color-primary);
-}
-.slider .card .img{
-  height: 200px;
-  width: 100%;
-}
-.slider .card .img img:hover{
-    filter: grayscale(100%);
-}
-.slider .card .img img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.slider .card .content{
-  padding: 10px 20px;
-}
-.card .content .title{
-  font-size: 25px;
-  font-weight: 600;
-}
-.card .content .sub-title{
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--color-secondary);
-  line-height: 20px;
-}
-.card .content p{
-  text-align: justify;
-  margin: 10px 0;
-}
-.card .content .btn{
-  display: block;
-  text-align: left;
-  margin: 10px 0;
-}
-.card .content .btn button{
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  border: none;
-  outline: none;
-  font-size: 17px;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.card .content .btn button:hover{
-  transform: scale(0.9);
 }

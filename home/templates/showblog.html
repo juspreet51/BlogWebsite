@@ -28,38 +28,125 @@
       rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/stackoverflow-dark.min.css"
     />
-   
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    
   </head>
+
   <body class="main-content">
     <div class="main-tag">
       <div class="category-description">
-        <div class="main-title" style="margin-top:3rem;align-self:center;margin:4rem;" >
+        <div
+          class="main-title-blog"
+          style="margin-top: 3rem; align-self: center; margin: 4rem"
+        >
           <h2>
-            <span style="font-size:2.5rem;">{{blogid.title}}</span>
+            <span>{{blogid.title}}</span>
           </h2>
         </div>
         <span>Last edited : {{blogid.date}}</span>
-        <div class='tag-list'>
-            {% for tag in blogid.cat.all %}
-            <a href="/category/{{tag}}" class='blog-tag'>{{tag}}</a>
-            {% endfor %}
+        <div class="tag-list">
+          {% for tag in blogid.cat.all %}
+          <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
+          {% endfor %}
         </div>
         <div class="category">
           <img src="/media/{{blogid.image}}" alt="{{blogid.title}}" />
-          <p>{{blogid.content | safe}}</p>
+          <p style="width:fit-content;">{{blogid.content | safe}}</p>
         </div>
       </div>
-    </div>
 
+      <div class="sidebar">
+        <div class="profile-image"><img src="/media/{{personal.image}}" /></div>
+        <div class="personal-desc"><p>{{personal.desc | safe}}</p></div>
+        <div class="connect-text">Connect with me</div>
+        <div class="connect-button">
+          <a href="{{personal.facebook}}" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="{{personal.twitter}}" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="{{personal.github}}" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="{{personal.youtube}}" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+        {% comment %} <div class="connect-text-tag">All Tags</div>
+        <div class="side-tags">
+          {% for tag in category %}
+          <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
+          {% endfor %}
+        </div>
+       </div> {% endcomment %}
+    </div>
+  </div>
+    <div class="slider owl-carousel">
+      {% for bg in blog %}
+      {% if bg.id != blogid.id %}
+      <div class="card">
+        <div class="img">
+          <img src="/media/{{bg.image}}" alt="{{bg.title}}" />
+        </div>
+        <div class="content">
+          <div class="title">{{bg.title}}</div>
+          <div class="btn">
+            <button onclick="handleBlogs({{bg.id}})">Read more</button>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div id="disqus_thread"></div>
     <div class="theme-btn">
       <i class="fas fa-adjust"></i>
     </div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://127.0.0.1:8000/blog/{{blogid.id}}';
+        this.page.identifier = {{ blogid.id }}
+      };
+      (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jaspreetblog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.body).appendChild(s);
+      })();
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript"
+        >comments powered by Disqus.</a
+      ></noscript
+    >
+
     <script src="{% static 'js/app.js'%}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script
       src="https://kit.fontawesome.com/29ea8845ba.js"
       crossorigin="anonymous"
     ></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script>
+      $(".slider").owlCarousel({
+        items: 3,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+      });
+      const handleBlogs = (id) => {
+        window.location.href = `/blog/${id}`;
+      };
+    </script>
   </body>
 </html>
