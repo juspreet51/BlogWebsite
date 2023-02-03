@@ -7,6 +7,14 @@
 }
 
 :root {
+  --button: #b3b3b3;
+  --button-color: #0a0a0a;
+  --shadow: #000;
+  --bg: #737373;
+  --header: #7a7a7a;
+  --color: #fafafa;
+  --lit-header: #e6e6e6;
+  --speed: 2s;
   --color-primary: #191d2b;
   --color-secondary: #27AE60;
   --color-white: #FFFFFF;
@@ -37,6 +45,76 @@
   --color-grey-6: #12181b;
   --color-input: #000000;
 }
+@property --swing-x {
+  initial-value: 0;
+  inherits: false;
+  syntax: '<integer>';
+}
+@property --swing-y {
+  initial-value: 0;
+  inherits: false;
+  syntax: '<integer>';
+}
+
+.cloak {
+  animation: swing var(--speed) infinite alternate-reverse ease-in-out;
+  height: 100%;
+  width: 100%;
+  transform-origin: 50% 30%;
+  transform: rotate(calc(var(--swing-x) * -0.25deg));
+  background: radial-gradient(40% 40% at 50% 42%, transparent, #000 35%);
+}
+.cloak__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+.cloak__container {
+  height: 250vmax;
+  width: 250vmax;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.info {
+  text-align: center;
+  line-height: 1.5;
+  max-width: clamp(16rem, 90vmin, 25rem);
+}
+.info > p {
+  margin-bottom: 3rem;
+}
+@-webkit-keyframes swing {
+  0% {
+    --swing-x: -100;
+    --swing-y: -100;
+  }
+  50% {
+    --swing-y: 0;
+  }
+  100% {
+    --swing-y: -100;
+    --swing-x: 100;
+  }
+}
+@keyframes swing {
+  0% {
+    --swing-x: -100;
+    --swing-y: -100;
+  }
+  50% {
+    --swing-y: 0;
+  }
+  100% {
+    --swing-y: -100;
+    --swing-x: 100;
+  }
+}
+
 
 body {
   background-color: var(--color-primary);

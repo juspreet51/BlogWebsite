@@ -21,3 +21,6 @@ urlpatterns = [
     path('',include('home.urls')),
     path('tinymce/', include('tinymce.urls'))
 ]
+
+handler404 = 'home.views.handler404'
+handler500 = 'home.views.handler500'

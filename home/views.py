@@ -5,7 +5,15 @@ from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
 from bs4 import BeautifulSoup
 
+
 # Create your views here.
+
+def handler404(request, exception):
+    return render(request,'404.html')
+
+def handler500(request):
+    return render(request,'500.html')
+
 def home(request):
     categories=Category.objects.all()
     context={"categories":categories,"type":"all"}
