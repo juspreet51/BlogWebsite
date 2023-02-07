@@ -45,7 +45,10 @@ const searchCat=()=>{
     }
 }
 const handleBlog=(id)=>{
-  window.location.href=`blog/${id}`
+  // window.location.href=`blog/${id}`
+  window.open(
+    `blog/${id}`,
+    '_blank' 
+  );
 }
-
 
