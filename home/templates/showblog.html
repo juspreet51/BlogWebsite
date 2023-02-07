@@ -56,13 +56,13 @@
           {% endfor %}
         </div>
         <div class="category">
-          <img src="/media/{{blogid.image}}" alt="{{blogid.title}}" />
+          <img src="{{blogid.image}}" alt="{{blogid.title}}" />
           <p style="width:fit-content;">{{blogid.content | safe}}</p>
         </div>
       </div>
 
       <div class="sidebar">
-        <div class="profile-image"><img src="/media/{{personal.image}}" /></div>
+        <div class="profile-image"><img src="{{personal.image}}" /></div>
         <div class="personal-desc"><p>{{personal.desc | safe}}</p></div>
         <div class="connect-text">Connect with me</div>
         <div class="connect-button">
@@ -93,7 +93,7 @@
       {% if bg.id != blogid.id %}
       <div class="card">
         <div class="img">
-          <img src="/media/{{bg.image}}" alt="{{bg.title}}" />
+          <img src="{{bg.image}}" alt="{{bg.title}}" />
         </div>
         <div class="content">
           <div class="title">{{bg.title}}</div>

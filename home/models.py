@@ -15,7 +15,7 @@ class Category(models.Model):
         return self.heading
     def save(self, *args, **kwargs):
         self.date = timezone.now()
-        super(Blog, self).save(*args, **kwargs)
+        super(Category, self).save(*args, **kwargs)
 
 class Blog(models.Model):
     id = models.AutoField(primary_key=True)
@@ -68,7 +68,8 @@ class Personal(models.Model):
     twitter=models.CharField(max_length=200,default="")
     youtube=models.CharField(max_length=200,default="")
     phone=models.IntegerField()
-    resume=models.FileField(upload_to='resume/')
+    # resume=models.FileField(upload_to='resume/')
+    resume=models.ImageField(upload_to='personal/')
     year_experience=models.IntegerField(default=0)
     project_completed=models.IntegerField(default=0)
     happy_client=models.IntegerField(default=0)

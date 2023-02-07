@@ -675,6 +675,7 @@ section {
 }
 
 .blogs .blog {
+  /* height: fit-content; */
   position: relative;
   background-color: var(--color-grey-5);
   border-radius: 5px;
