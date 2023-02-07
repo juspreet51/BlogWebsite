@@ -9,7 +9,8 @@ class Category(models.Model):
     id=models.AutoField(primary_key=True)
     heading=models.CharField(max_length=70)
     desc=models.TextField()
-    image=models.ImageField(upload_to='category/')
+    # image=models.ImageField(upload_to='category/')
+    image=models.CharField(max_length=500,default='https://github.com/dhruvil-shah/BlogWebsite/blob/master/assets/blog1.jpg')
     date = models.DateTimeField(auto_now_add=True, null=True)
     def __str__(self):
         return self.heading
@@ -23,7 +24,8 @@ class Blog(models.Model):
     content = RichTextField()
     url = models.CharField(max_length=100)
     cat = models.ManyToManyField(Category)
-    image = models.ImageField(upload_to='post/')
+    # image = models.ImageField(upload_to='post/')
+    image=models.CharField(max_length=500,default='https://github.com/dhruvil-shah/BlogWebsite/blob/master/assets/blog1.jpg')
     date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
@@ -50,7 +52,8 @@ class Experience(models.Model):
 
 class Project(models.Model):
     title=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='project/')
+    # image=models.ImageField(upload_to='project/')
+    image=models.CharField(max_length=500,default='https://github.com/dhruvil-shah/BlogWebsite/blob/master/assets/blog1.jpg')
     github_link=models.CharField(max_length=200)
 
     def __str__(self):
@@ -59,7 +62,8 @@ class Project(models.Model):
 class Personal(models.Model):
     name=models.CharField(max_length=30)
     desc=RichTextField()
-    image = models.ImageField(upload_to='personal/')
+    # image = models.ImageField(upload_to='personal/')
+    image=models.CharField(max_length=500,default='https://github.com/dhruvil-shah/BlogWebsite/blob/master/assets/blog1.jpg')
     email=models.EmailField()
     github=models.CharField(max_length=200)
     facebook=models.CharField(max_length=200)
