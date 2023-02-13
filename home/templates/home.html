@@ -225,9 +225,9 @@
                     <div class="blog">
                         <img src="{{bg.image}}" alt={{bg.title}}>
                         <div class="blog-text">
-                            <h4 onclick=handleBlog("{{bg.id}}")>
+                            <a href="blog/{{bg.title}}" target="_blank"><h4>
                                 {{bg.title}}
-                            </h4>
+                            </h4></a>
                             <p>
                                 {{bg.content | safe}}
                             </p>

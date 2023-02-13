@@ -1050,6 +1050,7 @@ section {
   font-size: 1.5rem;
 }
 .sidebar{
+  margin-top: 5rem;
   flex: 1;
   display: flex;
   height: fit-content;

@@ -17,7 +17,7 @@ def getYear(request):
     return {"year":year}
 
 def getBlog(request):
-    blog = Blog.objects.all()
+    blog = Blog.objects.all().order_by('-date')
     for bg in blog:
         str=bg.content
         length=min(250,len(str))

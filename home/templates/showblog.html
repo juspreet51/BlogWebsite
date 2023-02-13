@@ -50,14 +50,20 @@
           </h2>
         </div>
         <span>Last edited : {{blogid.date}}</span>
+        {% comment %} <div class="tag-list">
+          {% for tag in blogid.cat.all %}
+          <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
+          {% endfor %}
+        </div> {% endcomment %}
+        <div class="category">
+          <img src="{{blogid.image}}" alt="{{blogid.title}}" />
+          <p style="width:fit-content;">{{blogid.content | safe}}</p>
+        </div>
+        <h2>Tags</h2>
         <div class="tag-list">
           {% for tag in blogid.cat.all %}
           <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
           {% endfor %}
-        </div>
-        <div class="category">
-          <img src="{{blogid.image}}" alt="{{blogid.title}}" />
-          <p style="width:fit-content;">{{blogid.content | safe}}</p>
         </div>
       </div>
 

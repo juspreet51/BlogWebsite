@@ -44,10 +44,11 @@ const searchCat=()=>{
       }
     }
 }
-const handleBlog=(id)=>{
+const handleBlog=(title)=>{
+  console.log(title);
   // window.location.href=`blog/${id}`
   window.open(
-    `blog/${id}`,
+    `blog/${title}`,
     '_blank' 
   );
 }

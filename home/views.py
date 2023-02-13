@@ -97,6 +97,6 @@ def contact(request):
         context={"name":name}
     return render(request,'contact.html',context)
 
-def blog_id(request,id):
-    blogid=Blog.objects.get(pk=id)
+def blog_title(request,title):
+    blogid=Blog.objects.get(title=title)
     return render(request,'showblog.html',{"blogid":blogid})
