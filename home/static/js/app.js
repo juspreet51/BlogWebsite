@@ -32,12 +32,14 @@ const searchCat=()=>{
     for(q in query){
       q=q.trim()
     }
+    const lowercaseWords = [];
+    query.forEach(word => lowercaseWords.push(word.toLowerCase()));
     console.log(query);
     console.log(allCategory);
     for(var i=0;i<allCategory.length;i++){
       let id=(allCategory[i].id).substring(10);
       console.log(id);
-      if(!query.includes(allCategory[i].innerHTML.trim().toLowerCase())){
+      if(!lowercaseWords.includes(allCategory[i].innerHTML.toLowerCase().trim())){
         document.getElementById(`category-${id}`).style.display="none"
       }else{
         document.getElementById(`category-${id}`).style.display=""
