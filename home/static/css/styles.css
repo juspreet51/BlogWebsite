@@ -1251,10 +1251,10 @@ section {
     margin-top: 1rem;
   }
 
-  /* .blogs {
-    grid-template-columns: repeat(1, 1fr);
+  .blogs {
+    /* grid-template-columns: repeat(1, 1fr); */
     padding-bottom: 6rem;
-  } */
+  }
 
 
   .contact-content-con {
