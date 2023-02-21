@@ -81,11 +81,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/29ea8845ba.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="tag-body">
@@ -116,7 +117,7 @@
                             {{bg.content}}
                         </p>
                         <div class="btn">
-                            <button onclick=handleBlogs({{bg.id}})>Read more</button>
+                            <a href="/blog/{{bg.title}} " target="_blank"><button >Read more</button></a>
                         </div>
                     </div>
                 </div>
@@ -125,6 +126,9 @@
         </div>
         <div class="theme-btn">
             <i class="fas fa-adjust"></i>
+        </div>
+        <div class="theme-btn1">
+            <i class="fa-sharp fa-solid fa-arrow-left-long"></i>
         </div>
         <script src="{% static 'js/app.js'%}"></script>
         <script>
@@ -135,8 +139,8 @@
                 autoplayTimeout: 2000,
                 autoplayHoverPause: true,
             });
-            const handleBlogs = (id) => {
-                window.location.href = `/blog/${id}`
+            const handleBlogs = (title) => {
+                window.location.href = `/blog/${title}`
             }
         </script>
 </body>

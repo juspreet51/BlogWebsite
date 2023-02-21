@@ -225,7 +225,7 @@
                     <div class="blog">
                         <img src="{{bg.image}}" alt={{bg.title}}>
                         <div class="blog-text">
-                            <a href="blog/{{bg.title}}" target="_blank"><h4>
+                            <a href="/blog/{{bg.title}}" target="_blank"><h4>
                                 {{bg.title}}
                             </h4></a>
                             <p>
@@ -248,19 +248,20 @@
                 <div class="main-title">
                     <h2>My <span>Categories</span></h2>
                 </div>
+                
                 <div class='search-category'>
-                    
+                    <div>Search Tags :</div>
                         <input type='text' id="query-category" placeholder="NLP,ML,Data..." onkeyup=searchCat() ></input>
                         {% comment %} <div id='search-btn'>{% if type == "all" %}<i  class="fa-solid fa-magnifying-glass"></i>
                         {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div> {% endcomment %}
                     
-                </div>
+                </div>  
                 <div class="blogs" id="categories">
                     {% for cat in category %}
                     <div class="blog" id="category-{{cat.id}}" >
-                        <img src="{{cat.image}}" alt={{cat.heading}}>
+                        <img src="{{cat.image}}" id="cat-img" alt={{cat.heading}} onclick=handleTag("{{cat.heading}}")>
                         <div class="blog-text">
-                            <h4 id="cat-title-{{cat.id}}" onclick=handleTag("{{cat.heading}}")>
+                            <h4 id="cat-title-{{cat.id}}" >
                                 {{cat.heading}}
                             </h4>
                             <p>
@@ -381,29 +382,32 @@
     </main>
 
     <div class="controls">
-        <div class="control active-btn" data-id="home" >
+        <a href="#home"><div class="control active-btn" data-id="home" >
             <i class="fas fa-home"></i>
-        </div>
-        <div class="control" data-id="about">
+        </div></a>
+        <a href="#about"><div class="control" data-id="about">
             <i class="fas fa-user"></i>
-        </div>
-        <div class="control" data-id="portfolio">
+        </div></a>
+        <a href="#portfolio"><div class="control" data-id="portfolio">
             <i class="fas fa-briefcase"></i>
-        </div>
-        <div class="control" data-id="blogs">
+        </div></a>
+        <a href="#blogs"><div class="control" data-id="blogs">
             <i class="far fa-newspaper"></i>
-        </div>
-        <div class="control" data-id="tags">
+        </div></a>
+        <a href="#tags"><div class="control" data-id="tags">
             <i class="fa-solid fa-tag"></i>
-        </div>
-        <div class="control" data-id="contact">
+        </div></a>
+        <a href="#contact"><div class="control" data-id="contact">
             <i class="fas fa-envelope-open"></i>
-        </div>
+        </div></a>
        
 
     </div>
     <div class="theme-btn">
         <i class="fas fa-adjust"></i>
+    </div>
+    <div class="theme-btn1">
+        <i class="fa-sharp fa-solid fa-arrow-left-long"></i>
     </div>
     <script src="{% static 'js/app.js'%}"></script>
     

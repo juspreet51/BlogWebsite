@@ -4,17 +4,26 @@
     button.addEventListener("click", function () {
       document.querySelector(".active-btn").classList.remove("active-btn");
       this.classList.add("active-btn");
-      document.querySelector(".active").classList.remove("active");
-      document.getElementById(button.dataset.id).classList.add("active");
+      // document.querySelector(".active").classList.remove("active");
+      console.log(button.dataset.id);
+      // document.getElementById(button.dataset.id).focus();
+      
     });
   });
   document.querySelector(".theme-btn").addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
   });
+  document.querySelector(".theme-btn1").addEventListener("click", () => {
+    if(history.back()===undefined){
+      window.location.href='/'
+    }
+    history.back();
+  });
 
 })();
 const handleTag= (tag) => {
-  window.location.href=`/category/${tag}`
+  // window.location.href=`/category/${tag}`
+  window.open(`/category/${tag}`, '_blank');
 };
 
 const searchCat=()=>{
