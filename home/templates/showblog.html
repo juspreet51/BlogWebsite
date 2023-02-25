@@ -39,44 +39,51 @@
   </head>
 
   <body class="main-content1">
-    <div class="sidebar">
-      <div class="profile-image"><img src="{{personal.image}}" /></div>
-      <div class="personal-desc"><p>{{personal.desc | safe}}</p></div>
-      <div class="connect-text">Connect with me</div>
-      <div class="connect-button">
-        <a href="{{personal.linkedin}}" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="{{personal.twitter}}" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="{{personal.github}}" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="{{personal.youtube}}" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
+    <div class="top-content">
+      <div class="leftbar">
+        <div
+        class="main-title-blog"
+        style=" align-self: center; "
+      >
+        <h2>
+          <span>{{blogid.title}}</span>
+        </h2>
       </div>
-  </div>
+      <span>Last edited : {{blogid.date}}</span>
+      <img src="{{blogid.image}}" alt="{{blogid.title}}" />
+      </div>
+
+      <div class="sidebar">
+        <div class="profile-image"><img src="{{personal.image}}" /></div>
+        <div class="personal-desc"><p>{{personal.desc | safe}}</p></div>
+        <div class="connect-text">Connect with me</div>
+        <div class="connect-button">
+          <a href="{{personal.linkedin}}" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="{{personal.twitter}}" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="{{personal.github}}" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="{{personal.youtube}}" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
     <div class="main-tag">
       <div class="category-description">
         
-        <div
-          class="main-title-blog"
-          style="margin-top: 3rem; align-self: center; margin: 4rem"
-        >
-          <h2>
-            <span>{{blogid.title}}</span>
-          </h2>
-        </div>
-        <span>Last edited : {{blogid.date}}</span>
         {% comment %} <div class="tag-list">
           {% for tag in blogid.cat.all %}
           <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
           {% endfor %}
         </div> {% endcomment %}
         <div class="category">
-          <img src="{{blogid.image}}" alt="{{blogid.title}}" />
+          
           <p style="width:fit-content;">{{blogid.content | safe}}</p>
         </div>
         <h2>Tags</h2>
@@ -85,9 +92,7 @@
           <a href="/category/{{tag}}" class="blog-tag">{{tag}}</a>
           {% endfor %}
         </div>
-      </div>
-
-      
+      </div> 
   </div>
     <div class="slider owl-carousel">
       {% for bg in blog %}
@@ -105,6 +110,25 @@
       </div>
       {% endif %}
       {% endfor %}
+    </div>
+    <div class="sidebar-down">
+      <div class="profile-image"><img src="{{personal.image}}" /></div>
+      <div class="personal-desc"><p>{{personal.desc | safe}}</p></div>
+      <div class="connect-text">Connect with me</div>
+      <div class="connect-button">
+        <a href="{{personal.linkedin}}" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="{{personal.twitter}}" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="{{personal.github}}" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="{{personal.youtube}}" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
     </div>
     <div id="disqus_thread"></div>
     <div class="theme-btn">
