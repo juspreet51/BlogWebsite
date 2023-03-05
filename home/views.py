@@ -100,3 +100,8 @@ def contact(request):
 def blog_title(request,title):
     blogid=Blog.objects.get(title=title)
     return render(request,'showblog.html',{"blogid":blogid})
+
+
+def blog_all(request):
+    blogs=Blog.objects.all()
+    return render(request,'showmore.html')

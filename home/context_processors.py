@@ -17,13 +17,22 @@ def getYear(request):
     return {"year":year}
 
 def getBlog(request):
-    blog = Blog.objects.all().order_by('-date')
+    blog = Blog.objects.all().order_by('-date')[:5]
     for bg in blog:
         str=bg.content
         length=min(250,len(str))
         str=str[0:length]+"..."
         bg.content=str
     return{'blog':blog}
+
+def getBlogAll(request):
+    blog = Blog.objects.all().order_by('-date')
+    for bg in blog:
+        str=bg.content
+        length=min(250,len(str))
+        str=str[0:length]+"..."
+        bg.content=str
+    return{'blogs':blog}
 
 def getSkills(request):
     skill=Skills.objects.all()

@@ -82,7 +82,8 @@ TEMPLATES = [
                 'home.context_processors.getBlog',
                 'home.context_processors.getProject',
                 'home.context_processors.getSkills',
-                'home.context_processors.getExperience'
+                'home.context_processors.getExperience',
+                'home.context_processors.getBlogAll'
             ],
         },
     },

@@ -231,16 +231,19 @@
                             <p>
                                 {{bg.content | safe}}
                             </p>
+                            <p>{{bg.date}}</p>
                             <div class='tag-list'>
                                 {% for tag in bg.cat.all %}
-                                <a href="category/{{tag}}" class='blog-tag'>{{tag}}</a>
+                                <a href="category/{{tag}}" target="_blank" class='blog-tag'>{{tag}}</a>
                                 {% endfor %}
                             </div>
                         </div>
+                        
                        
                     </div>
                     {% endfor %}
                 </div>
+                <a href="/showBlogs" target="_blank"><button id="show-more">Show More</button></a>
             </div>
         </section>
         <section class="container" id="tags">
