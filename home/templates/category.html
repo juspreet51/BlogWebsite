@@ -100,7 +100,7 @@
                 <img src="{{category.image}}" alt={{bg.title}}>
                 <p>{{category.desc}}</p>
             </div>
-            <div class="slider owl-carousel">
+            {% comment %} <div class="slider owl-carousel">
                 {% for bg in blog %}
                 <div class="card">
                     <div class="img">
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div> {% endcomment %}
         </div>
         <div class="theme-btn">
             <i class="fas fa-adjust"></i>
