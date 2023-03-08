@@ -1675,7 +1675,7 @@ header {
 
 .footer-distributed{
 	background-color: var(--color-grey-4);
-	box-shadow: 0 1px 1px 0 var(--color-secondary);
+	/* box-shadow: 0 1px 1px 0 var(--color-secondary); */
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
@@ -1776,14 +1776,14 @@ header {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  
+  color: rgb(235, 232, 232);
   align-items: center;
   justify-content: flex-start;
   margin: 0.5rem;
   
 }
 .footer-distributed .footer-center p a{
-	color:  white;
+	color:  rgb(235, 232, 232);
 	text-decoration: none;;
 }
 
