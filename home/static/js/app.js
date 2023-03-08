@@ -63,4 +63,50 @@ const handleBlog=(title)=>{
     '_blank' 
   );
 }
+const searchTag=()=>{
+  let query=document.getElementById('query-category').value;
+  let allBlogs=document.querySelectorAll('[id^=blog-]')
+  console.log(allBlogs);
+  if(query.trim()=="")
+  {
+    for(var i=0;i<allBlogs.length;i++){
+      let id=(allBlogs[i].id).substring(5);
+        document.getElementById(`blog-${id}`).style.display=""
+    }
+    return
+  }
+  query=query.split(",")
+  for(q in query){
+    q=q.trim()
+  }
+  const lowercaseWords = [];
+  query.forEach(word => lowercaseWords.push(word.toLowerCase()));
+  console.log("que:",query);
+  console.log("Lo",lowercaseWords);
+  console.log(allBlogs);
+  outer:for(var i=0;i<allBlogs.length;i++){
+    let id=(allBlogs[i].id).substring(5);
+    console.log(id);
+    let allCat=document.querySelectorAll(`[id^=tag-${id}-]`)
+    console.log("All Cat",allCat);
+    for(var j=0;j<allCat.length;j++){
+        let name=allCat[j].innerHTML.toLowerCase().trim();
+        if(lowercaseWords.includes(name)){
+          console.log("Name",name);
+          console.log(id);
+          document.getElementById(`blog-${id}`).style.display="" 
+          continue outer;   
+        }
+        
+    }
+    document.getElementById(`blog-${id}`).style.display="none"
+    // console.log(id);
+    // if(!lowercaseWords.includes(allCategory[i].innerHTML.toLowerCase().trim())){
+    //   document.getElementById(`category-${id}`).style.display="none"
+    // }else{
+    //   document.getElementById(`category-${id}`).style.display=""
+    // }
+  }
+}
+
 

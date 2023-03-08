@@ -105,3 +105,6 @@ def blog_title(request,title):
 def blog_all(request):
     blogs=Blog.objects.all()
     return render(request,'showmore.html')
+
+    
+    

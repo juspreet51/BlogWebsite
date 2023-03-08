@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 * {
   margin: 0;
   padding: 0;
@@ -153,6 +154,7 @@ header {
   transition: all 0.4s ease-in-out;
   background-color: var(--color-primary);
   display: block;
+  padding: 2.5rem;
 }
 
 .container-category {
@@ -253,6 +255,15 @@ header {
 #search-btn{
   cursor: pointer;
   padding: 0.5rem;
+}
+.search-cat{
+  background-color: var(--color-secondary);
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.6rem;
+}
+.search-cat:hover{
+  background-color: transparent;
 }
 #query-category{
   font-family: inherit;
@@ -933,12 +944,16 @@ header {
   border-radius: 30px;
   color: inherit;
   font-weight: 600;
+  padding: 0.4rem;
   position: relative;
   border: 1px solid var(--color-secondary);
   display: flex;
   align-self: flex-start;
   align-items: center;
   overflow: hidden;
+}
+.main-btn:hover{
+  background-color: var(--color-secondary);
 }
 
 .main-btn .btn-text {
@@ -1521,20 +1536,24 @@ header {
     margin-left: 2rem;
     margin-right: 2rem;
   }
-  .blogs .blog {
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .blogs .blog img{
     width: 60%;
     margin: auto;
-    margin-top: 1rem;
+    margin: 1rem;
     border-radius: 0.5rem;
   }
-  .blog-text h4{
-    text-align: center;
+  #img-blog{
+    display: none;
+  }
+  #cat-img{
+    width: 12rem;
+    height: 12rem;
+    
+  }
+  .blogs .blog{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -1641,5 +1660,215 @@ header {
     padding: 2px;
   }
   
+
+}
+.footer-section {
+  width: 100%;
+  display: inline-block;
+  background-color: var(--color-primary);
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background-color: var(--color-grey-4);
+	box-shadow: 0 1px 1px 0 var(--color-secondary);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color: white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+/* .footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 20px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px; 
+	
+  
+	vertical-align: middle;
+} */
+
+
+/* .footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+} */
+
+/* .footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+} */
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+.footer-center div{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5rem;
+  
+}
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+  .footer-center div{
+    
+    justify-content: center;
+    
+    
+  }
 
 }
