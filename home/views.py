@@ -4,6 +4,7 @@ from .models import Blog,Category,Contact,Personal
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
 from bs4 import BeautifulSoup
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -102,9 +103,18 @@ def blog_title(request,title):
     return render(request,'showblog.html',{"blogid":blogid})
 
 
-def blog_all(request):
-    blogs=Blog.objects.all()
-    return render(request,'showmore.html')
+def blog_all(request,page):
+    Blogs=Blog.objects.all()
+    paginator=Paginator(Blogs,3)
+    page_number=page
+    BlogsFinalData=paginator.get_page(page_number)
+    totalPage=BlogsFinalData.paginator.num_pages
+    pageList=[n+1 for n in range(totalPage)]
+    return render(request,'showmore.html',{"blogData":BlogsFinalData,"pageList":pageList,"currPage":page_number})
 
-    
+def search(request):
+    title=request.GET['query-title']
+    searchBlogs=Blog.objects.filter(title__icontains=title)
+    return render(request,'searchBlogs.html',{"searchBlog":searchBlogs})
+
     

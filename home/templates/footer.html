@@ -1,52 +1,55 @@
-<footer class="footer">
-    <div class="footer__addr">
-      <h1 class="footer__logo">Jaspreet's Blog</h1>
-      <div class="footer_icons">
-        <a href={{personal.linkedin}} target="_blank"><i class="fa-brands fa-2x fa-linkedin"></i></a>
-        <a><i class="fa-brands fa-2x fa-twitter"></i></a>
-        <a><i class="fa-brands fa-2x fa-facebook"></i></a>
-        <a href={{personal.github}} target="_blank"><i class="fa-brands fa-2x fa-github"></i></a>
-      </div>
-      
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Jaspreet<span>Blogs</span>.in</h3>
+
+    <p class="footer-links">
+      <a href="/#home" class="link-1">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#portfolio">Portfolio</a>
+      <a href="/#blogs">Blogs</a>
+      <a href="/#tags">Categories</a>
+      <a href="/#contact">Contact Us</a>
+    </p>
+
+    <p class="footer-company-name">© 2023 JaspreetBlogs.in. All Right Reserved</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p>Bangalore,India</p>
     </div>
-    
-    <ul class="footer__nav">
-      
-      
-      <li class="nav__item nav__item--extra">
-        <h2 class="nav__title">Topics</h2>
-        
-        <ul class="nav__ul nav__ul--extra">
-          {% for cat in category%}
-          <li>
-            <a href=`/blog/blogs/${{cat.heading}}`>{{cat.heading}}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </li>
-      
-      
-      <li class="nav__item">
-        <h2 class="nav__title">Quick Links</h2>
-        
-        <ul class="nav__ul">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          
-          <li>
-            <a href="#">Blog</a>
-          </li>
-          
-          <li>
-            <a href="#">About</a>
-          </li>
-        </ul>
-      </li>
-      
-    </ul>
-    
-    <div class="legal">
-      <p>&copy; {{year}} Juspreet's Blog. All rights reserved.</p>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+91-{{personal.phone}}</p>
     </div>
-  </footer>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:{{personal.email}}">{{personal.email}}</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>About the Developer</span>
+      For developing similar website/applications you can contact the developer on options given below
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="https://www.facebook.com/dhruvil.shah.5030" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.linkedin.com/in/dhruvil-shah-444a92108/" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="https://github.com/dhruvil-shah" target="_blank"><i class="fa fa-github"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>

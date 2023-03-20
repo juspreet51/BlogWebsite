@@ -241,6 +241,17 @@ header {
   flex-direction: row;
   background-color: black;
 }
+.btn-title{
+  background-color: var(--color-secondary);
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-white);
+
+}
 
 .search-category {
   /* background-color: red; */
@@ -265,7 +276,7 @@ header {
 .search-cat:hover{
   background-color: transparent;
 }
-#query-category{
+#query-category,#query-title{
   font-family: inherit;
   color: var(--color-grey-2);
   padding: 0.5rem;
@@ -277,7 +288,9 @@ header {
 }
 #query-category:focus{
   outline: none;
-  
+}
+#query-title:focus{
+  outline: none;
 }
 
 .theme-btn {
@@ -1031,7 +1044,14 @@ header {
   /* flex: 3; */
   align-items: center;
   gap: 1rem;
-  margin: 1rem;
+  margin: 2rem;
+}
+
+.search-opt{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
 }
 
 
@@ -1287,7 +1307,25 @@ header {
   background-color: red;
 }
 
-
+.pagination{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.page-item{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid var(--color-secondary);
+}
+.active-item{
+  background-color: var(--color-secondary);
+}
+.page-item:hover{
+  background-color: var(--color-secondary);
+}
 
 
 @media screen and (max-width: 600px) {
@@ -1494,6 +1532,10 @@ header {
 
 @media screen and (max-width: 660px) {
  
+  .search-category{
+    display: flex;
+    flex-direction: column;
+  }
   /* .blogs {
     grid-template-columns: repeat(1, 1fr);
   } */
