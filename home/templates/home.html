@@ -235,7 +235,8 @@
                                 {% endfor %}
                             </div>
                             <p class="blog-par">
-                                {{bg.content | safe}}
+                                {% comment %} {{bg.content | safe}} {% endcomment %}
+                                {{bg.short_description}}
                             </p>
                             
                             

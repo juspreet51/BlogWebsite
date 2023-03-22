@@ -22,10 +22,10 @@ class Blog(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     content = RichTextField()
+    short_description=models.TextField(max_length=400,default="")
     url = models.CharField(max_length=100)
     cat = models.ManyToManyField(Category)
-    # image = models.ImageField(upload_to='post/')
-    image=models.CharField(max_length=500,default='https://github.com/dhruvil-shah/BlogWebsite/blob/master/assets/blog1.jpg')
+    image=models.CharField(max_length=1000)
     date = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):

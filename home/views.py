@@ -104,8 +104,8 @@ def blog_title(request,title):
 
 
 def blog_all(request,page):
-    Blogs=Blog.objects.all()
-    paginator=Paginator(Blogs,3)
+    Blogs=Blog.objects.all().order_by('-date')
+    paginator=Paginator(Blogs,7)
     page_number=page
     BlogsFinalData=paginator.get_page(page_number)
     totalPage=BlogsFinalData.paginator.num_pages
