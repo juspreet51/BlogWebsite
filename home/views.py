@@ -114,7 +114,26 @@ def blog_all(request,page):
 
 def search(request):
     title=request.GET['query-title']
+    print(title)
     searchBlogs=Blog.objects.filter(title__icontains=title)
     return render(request,'searchBlogs.html',{"searchBlog":searchBlogs})
+
+def search_category(request):
+    tags=request.GET['query-category']
+    tags_list=tags.split(",")
+    tags_list_lower=[]
+    for tag in tags_list:
+        tag="{}".format(tag)
+        tags_list_lower.append(tag.lower())
+    blogs=Blog.objects.all().order_by('-date')
+    searchBlogs=[]
+    for bg in blogs:
+        for cate in bg.cat.all():
+            catt="{}".format(cate)
+            if catt.lower() in tags_list_lower:
+                searchBlogs.append(bg)
+                break
+    return render(request,'searchBlogs.html',{"searchBlog":searchBlogs})
+
 
     

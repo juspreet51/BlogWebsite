@@ -1,122 +1,118 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Blogs</title>
-    <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/stackoverflow-dark.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-    />
-  </head>
-  <body>
-    <section class="container" id="blogs">
-        <div class="blogs-content">
-            <div class="main-title">
-                <h2>All <span>Blogs</span></h2>
-            </div>
-            <div class="search-opt">
-            <div class='search-category'>
-                  <form method="get" action="/search">
-                    <button class="btn-title"><div>Search Title</div></button>
-                    <input type='text' id="query-title" name="query-title" placeholder="NLP based chatbot" >
-                  </input>
-                  
-                  </form>
-            </div>
-            <div class='search-category'>
-              <div >Search Tags : </div>
-                  <input type='text' id="query-category" placeholder="NLP,ML,Data..." onkeyup=searchTag() ></input>
-            </div>
-          </div>     
-            <div class="blogs" >
-                {% for bg in blogData %}
-                <div class="blog" id="blog-{{bg.id}}">
-                    <img id="img-blog" src="{{bg.image}}" alt={{bg.title}}>
-                    <div class="blog-text">
-                        <a href="/blog/{{bg.title}}" target="_blank"><h4>
-                            {{bg.title}}
-                        </h4></a>
-                        <p>{{bg.date}}</p>
-                        <div class='tag-list'>
-                            {% for tag in bg.cat.all %}
-                            <a href="category/{{tag}}" target="_blank" class='blog-tag' id="tag-{{bg.id}}-{{tag}}">{{tag}}</a>
-                            {% endfor %}
-                        </div>
-                        <p>
-                            {% comment %} {{bg.content | safe}}{% endcomment %}
-                            {{bg.short_description}}
-                        </p>
-                        
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Blogs</title>
+  <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" />
+  <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/stackoverflow-dark.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  
+</head>
+
+<body>
+  <section class="container" id="blogs">
+    <div class="blogs-content">
+      <div class="main-title">
+        <h2>All <span>Blogs</span></h2>
+      </div>
+      <div class="search-opt">
+        <div class="search-category">
+              <form class="search-form" method="get" action="/search">
+                
+                <input type="text" id="query-title" name="query-title" placeholder="NLP based chatbot">
+                <!-- <button class="btn-title"><div>Search Title</div></button> -->
+                <button class="btn-title"><i class="fa fa-search" aria-hidden="true"></i></button>
+              
+              </form>
         </div>
-         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            {% if blogData.has_previous %}
-            <li class="page-item">
-              <a class="page-link" href="/showBlogs/{{blogData.previous_page_number}}" tabindex="-1">&lt;&lt;</a>
-            </li>
-            {% endif %}
-            {% for n in pageList %}
-            {% if n is currPage %}
-            <li class="page-item active-item"><a class="page-link" href="/showBlogs/{{n}}">{{n}}</a></li>
-            {% else %}
-            <li class="page-item"><a class="page-link" href="/showBlogs/{{n}}">{{n}}</a></li>
-            {% endif %}
+        <div class="search-category">
+          <form class="search-form" method="get" action="/search-category">
             
-            
-            {% endfor %}
-            {% if blogData.has_next %}
-            <li class="page-item">
-              <a class="page-link" href="/showBlogs/{{blogData.next_page_number}}">&gt;&gt;</a>
-            </li>
-            {% endif %}
-          </ul>
-        </nav> 
-        
-        <div class="theme-btn">
-          <i class="fas fa-adjust"></i>
+            <input type="text" id="query-category" name="query-category" placeholder="NLP,ML,Data">
+            <!-- <button class="btn-title"><div>Search Tag</div></button> -->
+            <button class="btn-title"><i class="fa fa-search" aria-hidden="true"></i></button>
+          
+          </form>
+    </div>
+       
       </div>
-      <div class="theme-btn1">
-          <i class="fa-sharp fa-solid fa-arrow-left-long"></i>
+      <div class="blogs">
+        {% for bg in blogData %}
+        <div class="blog" id="blog-{{bg.id}}">
+          <img id="img-blog" src="{{bg.image}}" alt={{bg.title}}>
+          <div class="blog-text">
+            <a href="/blog/{{bg.title}}" target="_blank">
+              <h4>
+                {{bg.title}}
+              </h4>
+            </a>
+            <p>{{bg.date}}</p>
+            <div class='tag-list'>
+              {% for tag in bg.cat.all %}
+              <a href="category/{{tag}}" target="_blank" class='blog-tag' id="tag-{{bg.id}}-{{tag}}">{{tag}}</a>
+              {% endfor %}
+            </div>
+            <p>
+              {% comment %} {{bg.content | safe}}{% endcomment %}
+              {{bg.short_description}}
+            </p>
+
+          </div>
+        </div>
+        {% endfor %}
       </div>
-    </section>
-    <script src="{% static 'js/app.js'%}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/29ea8845ba.js"
-      crossorigin="anonymous"
-    ></script>
-    {% include "footer.html" %}
-  </body>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if blogData.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="/showBlogs/{{blogData.previous_page_number}}" tabindex="-1">&lt;&lt;</a>
+        </li>
+        {% endif %}
+        {% for n in pageList %}
+        {% if n is currPage %}
+        <li class="page-item active-item"><a class="page-link" href="/showBlogs/{{n}}">{{n}}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="/showBlogs/{{n}}">{{n}}</a></li>
+        {% endif %}
+
+
+        {% endfor %}
+        {% if blogData.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="/showBlogs/{{blogData.next_page_number}}">&gt;&gt;</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <div class="theme-btn">
+      <i class="fas fa-adjust"></i>
+    </div>
+    <div class="theme-btn1">
+      <i class="fa-sharp fa-solid fa-arrow-left-long"></i>
+    </div>
+  </section>
+  <script src="{% static 'js/app.js'%}"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://kit.fontawesome.com/29ea8845ba.js" crossorigin="anonymous"></script>
+  {% include "footer.html" %}
+</body>
+
 </html>

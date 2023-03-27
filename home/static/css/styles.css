@@ -244,11 +244,11 @@ header {
 .btn-title{
   background-color: var(--color-secondary);
   border: none;
-  padding: 0.4rem;
-  border-radius: 0.5rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   color: var(--color-white);
 
 }
@@ -262,6 +262,18 @@ header {
   display: flex;
   gap: 1rem;
   flex-direction: row;
+}
+.search-form{
+  display: flex;
+  gap:10px;
+  flex-direction: row;
+}
+.search-form>input{
+  text-overflow: ellipsis;
+  width: 70%;
+}
+.search-form>button{
+  width: 30%;
 }
 #search-btn{
   cursor: pointer;
@@ -279,7 +291,7 @@ header {
 #query-category,#query-title{
   font-family: inherit;
   color: var(--color-grey-2);
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-bottom: 0.1rem solid var(--color-secondary);
   border-top:none ;  
   border-right:none;  
@@ -827,12 +839,6 @@ header {
 }
 
 
-
-
-
-
-
-
 .contact-content-con {
   display: flex;
   padding-top: 3.5rem;
@@ -1049,10 +1055,23 @@ header {
 .search-opt{
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
   justify-content: center;
 }
-
+.search-container{
+  margin: 2rem auto;
+}
+.search-select{
+  font-size: 22px;
+  padding: 4px 10px;
+  border-radius: 0.5rem;
+  font-weight: 400;
+  background-color: var(--color-secondary);
+  color: white;
+}
+.search-option{
+  font-size: 22px;
+}
 
 .category {
   display: flex;
