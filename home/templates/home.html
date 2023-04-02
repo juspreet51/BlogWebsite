@@ -22,7 +22,7 @@
         {% endblock %}
         <div class='search'>
             <form>
-                <input type='text' id="query" placeholder="NLP,ML,Data"></input>
+                <input type='text' id="query" placeholder="Search Tags"></input>
                 <div id='search-btn'>{% if type == "all" %}<i  class="fa-solid fa-magnifying-glass"></i>
                 {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div>
             </form>
@@ -257,7 +257,7 @@
                 
                 <div class='search-category'>
                     <div>Search Tags :</div>
-                        <input type='text' id="query-category" placeholder="NLP,ML,Data..." onkeyup=searchCat() ></input>
+                        <input type='text' id="query-category" placeholder="Tags" onkeyup=searchCat() ></input>
                         {% comment %} <div id='search-btn'>{% if type == "all" %}<i  class="fa-solid fa-magnifying-glass"></i>
                         {% else%}<i class="fa-solid fa-xmark"></i>{% endif %}</div> {% endcomment %}
                     
